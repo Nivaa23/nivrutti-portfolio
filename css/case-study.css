@@ -113,7 +113,7 @@
   border-radius: 24px;
   overflow: hidden;
   margin: var(--space-xl) 0;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   border: 1px solid var(--glass-border);
 }
 
@@ -165,7 +165,7 @@
   .cs-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .cs-sidebar h3 {
     position: static;
     margin-bottom: var(--space-md);

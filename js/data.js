@@ -1,4 +1,4 @@
-export const projects = [
+const projects = [
   {
     id: "cranial-space",
     name: "Cranial Space",

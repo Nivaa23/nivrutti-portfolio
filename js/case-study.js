@@ -1,5 +1,3 @@
-import { projects } from './data.js';
-
 // Init Lenis
 const lenis = new Lenis({
   duration: 1.2,
@@ -46,7 +44,7 @@ if (!project) {
 
   // Render Content
   const app = document.getElementById('case-study-content');
-  
+
   app.innerHTML = `
     <section class="cs-hero">
       <div class="cs-bg" style="background: ${project.gradient}"></div>
@@ -158,9 +156,10 @@ if (!project) {
 
   const scrollElements = document.querySelectorAll('.cs-content-section.reveal-up');
   scrollElements.forEach(el => {
-    gsap.fromTo(el, 
+    gsap.fromTo(el,
       { y: 60, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out",
+      {
+        y: 0, opacity: 1, duration: 1, ease: "power3.out",
         scrollTrigger: { trigger: el, start: "top 85%" }
       }
     );

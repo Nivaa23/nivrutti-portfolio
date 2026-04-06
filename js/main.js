@@ -1,5 +1,3 @@
-import { projects } from './data.js';
-
 // Init Lenis Smooth Scroll
 const lenis = new Lenis({
   duration: 1.2,
@@ -52,11 +50,11 @@ const projectsContainer = document.querySelector('.projects-grid');
 if (projectsContainer) {
   projects.forEach((project, index) => {
     const card = document.createElement('a');
-    card.href = `case-study.html?id=${project.id}`;
+    card.href = `${project.id}.html`;
     card.className = 'project-card reveal-up';
     // Use staggered delay for reveal based on index
     card.style.transitionDelay = `${(index % 2) * 0.1}s`;
-    
+
     card.innerHTML = `
       <div class="project-bg" style="background: ${project.gradient}"></div>
       <div class="project-content">
@@ -74,45 +72,45 @@ if (projectsContainer) {
 // Entry animations
 window.addEventListener('DOMContentLoaded', () => {
   const tl = gsap.timeline();
-  
+
   tl.from(".hero-subtitle", {
     y: 20,
     opacity: 0,
     duration: 0.8,
     ease: "power3.out"
   })
-  .from(".hero-title", {
-    y: 30,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
-  }, "-=0.6")
-  .from(".hero-desc", {
-    y: 20,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power3.out"
-  }, "-=0.6")
-  .from(".hero-actions", {
-    y: 20,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power3.out"
-  }, "-=0.6")
-  .from("nav", {
-    y: -20,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power3.out"
-  }, "-=1");
+    .from(".hero-title", {
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out"
+    }, "-=0.6")
+    .from(".hero-desc", {
+      y: 20,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=0.6")
+    .from(".hero-actions", {
+      y: 20,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=0.6")
+    .from("nav", {
+      y: -20,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=1");
 
   // Scroll animations
   const revealElements = document.querySelectorAll('.reveal-up');
   revealElements.forEach(el => {
-    gsap.fromTo(el, 
-      { 
-        y: 60, 
-        opacity: 0 
+    gsap.fromTo(el,
+      {
+        y: 60,
+        opacity: 0
       },
       {
         y: 0,
@@ -134,12 +132,12 @@ window.addEventListener('DOMContentLoaded', () => {
     ease: "none",
     scrollTrigger: {
       trigger: ".about-image",
-      start: "top bottom", 
+      start: "top bottom",
       end: "bottom top",
       scrub: true
     }
   });
-  
+
   gsap.to(".bg-orb-1", {
     y: 300,
     x: 100,

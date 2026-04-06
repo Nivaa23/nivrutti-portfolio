@@ -6,7 +6,7 @@
   --text-primary: #FFFFFF;
   --text-secondary: #9CA3AF;
   --accent: #FFFFFF;
-  
+
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-hover: rgba(255, 255, 255, 0.06);
@@ -28,14 +28,17 @@
 }
 
 /* Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
-  scroll-behavior: initial; /* Lenis handles this */
+  scroll-behavior: initial;
+  /* Lenis handles this */
   background-color: var(--bg-color);
 }
 
@@ -49,7 +52,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   line-height: 1.2;
   font-weight: 500;
@@ -147,13 +155,15 @@ section {
   mix-blend-mode: difference;
   transform: translate(-50%, -50%);
   transition: width 0.3s, height 0.3s, background-color 0.3s;
-  display: none; /* Hide on mobile/touch */
+  display: none;
+  /* Hide on mobile/touch */
 }
 
 @media (pointer: fine) {
   .custom-cursor {
     display: block;
   }
+
   body {
     cursor: none;
   }
@@ -166,7 +176,7 @@ section {
 }
 
 /* Smooth reveal utility */
-.reveal, .reveal-up {
+.reveal,
+.reveal-up {
   opacity: 0;
-  visibility: hidden;
 }

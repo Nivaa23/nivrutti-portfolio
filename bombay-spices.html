@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Bombay Spices Dashboard - Case Study</title>
+  <link rel='stylesheet' href='css/global.css'>
+  <link rel='stylesheet' href='css/case-study.css'>
+  <style>
+    html.lenis {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: var(--space-md) 0;
+      z-index: 100;
+      background: rgba(5, 5, 5, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='custom-cursor'></div>
+  <nav>
+    <div class='container nav-container'><a href='index.html' class='logo'>ND.</a></div>
+  </nav>
+  <main>
+    <section class='cs-hero'>
+      <div class='cs-bg' style='background: linear-gradient(135deg, rgba(168,64,32,0.8), rgba(50,18,8,0.8))'></div>
+      <div class='container'>
+        <a href='index.html' class='back-btn reveal-up'>← Back to Portfolio</a>
+        <h1 class='cs-title reveal-up'>Bombay Spices Dashboard</h1>
+        <p class='cs-tagline reveal-up'>A loyalty and customer engagement dashboard for retail businesses to track
+          rewards, promotions, and customer behavior.</p>
+        <div class='cs-meta reveal-up'>
+          <div class='cs-meta-item'><span class='cs-meta-label'>Role</span><span class='cs-meta-value'>Lead
+              Designer</span></div>
+          <div class='cs-meta-item'><span class='cs-meta-label'>Type</span><span class='cs-meta-value'>Dashboard</span>
+          </div>
+          <div class='cs-meta-item'><span class='cs-meta-label'>Duration</span><span class='cs-meta-value'>2-3
+              Months</span></div>
+        </div>
+      </div>
+    </section>
+    <section class='cs-content-section container reveal-up'>
+      <div class='cs-grid'>
+        <div class='cs-sidebar'>
+          <h3>The Problem</h3>
+        </div>
+        <div class='cs-bodytext'>
+          <p>Retail managers lacked a centralized tool to view customer loyalty metrics and measure the effectiveness of
+            active promotions.</p>
+        </div>
+      </div>
+    </section>
+    <section class='cs-content-section container reveal-up'>
+      <div class='cs-mockup glass-panel'>
+        <div
+          style='width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(168,64,32,0.8), rgba(50,18,8,0.8))'>
+          <h2 style='font-size: 2rem; color: #fff; mix-blend-mode: overlay;'>Product Mockup Preview</h2>
+        </div>
+      </div>
+    </section>
+    <section class='cs-content-section container reveal-up'>
+      <div class='cs-grid'>
+        <div class='cs-sidebar'>
+          <h3 style='color: #FF7344'>Expected Impact</h3>
+        </div>
+        <div class='cs-bodytext'>
+          <p>Optimized promotional strategies by providing actionable visual metrics that directly improved customer
+            retention rates.</p>
+        </div>
+      </div>
+    </section>
+    <a href='snackstop-erp.html' class='next-project reveal-up' style='display: block'>
+      <div class='container'>
+        <h4>Next Project</h4>
+        <h2>SnackStop ERP Dashboard</h2>
+      </div>
+    </a>
+  </main>
+  <footer style='padding: var(--space-xl) 0; border-top: 1px solid var(--glass-border); text-align: center;'>
+    <div class='container'>
+      <p class='copyright'>&copy; 2026 Nivrutti Dandekar.</p>
+    </div>
+  </footer>
+  <script src='https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js'></script>
+  <script>
+    const lenis = new Lenis({ duration: 1.2, smooth: true });
+    function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    gsap.registerPlugin(ScrollTrigger);
+    const cursor = document.querySelector('.custom-cursor');
+    if (cursor) {
+      document.addEventListener('mousemove', e => { gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: 'power2.out' }); });
+    }
+    gsap.from('.reveal-up', {
+      y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: 'power3.out',
+      scrollTrigger: { trigger: 'body', start: 'top 80%' }
+    });
+    document.querySelectorAll('.cs-content-section.reveal-up').forEach(el => {
+      gsap.fromTo(el, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
+    });
+  </script>
+</body>
+
+</html>
