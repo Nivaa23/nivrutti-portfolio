@@ -1,0 +1,173 @@
+/* Case Study Specific Styles */
+.cs-hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: var(--space-xxl);
+  overflow: hidden;
+}
+
+.cs-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.cs-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, var(--bg-color) 0%, transparent 100%);
+}
+
+.cs-title {
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.cs-tagline {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin-bottom: var(--space-lg);
+}
+
+.cs-meta {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.cs-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cs-meta-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.cs-meta-value {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+}
+
+.cs-content-section {
+  padding: var(--space-xl) 0;
+}
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-xl);
+}
+
+.cs-sidebar h3 {
+  font-size: 2rem;
+  position: sticky;
+  top: 100px;
+}
+
+.cs-bodytext {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cs-bodytext p {
+  margin-bottom: var(--space-md);
+}
+
+.cs-list {
+  margin-left: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.cs-list li {
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.cs-list li::before {
+  content: '→';
+  position: absolute;
+  left: -24px;
+  color: var(--accent);
+}
+
+.cs-mockup {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  margin: var(--space-xl) 0;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border: 1px solid var(--glass-border);
+}
+
+.cs-mockup img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  transition: color var(--transition-fast);
+}
+
+.back-btn:hover {
+  color: var(--text-primary);
+}
+
+/* Next Project */
+.next-project {
+  text-align: center;
+  padding: var(--space-xxl) 0;
+  border-top: 1px solid var(--glass-border);
+  margin-top: var(--space-xxl);
+}
+
+.next-project h4 {
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.9rem;
+  margin-bottom: var(--space-md);
+}
+
+.next-project h2 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  transition: opacity var(--transition-fast);
+}
+
+.next-project:hover h2 {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .cs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cs-sidebar h3 {
+    position: static;
+    margin-bottom: var(--space-md);
+  }
+}
