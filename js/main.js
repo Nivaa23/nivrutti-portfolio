@@ -52,8 +52,12 @@ const setupCursor = () => {
 
 // Entry Animations
 const setupAnimations = () => {
+  // Set initial state for all revealable elements
+  gsap.set(".reveal-up", { y: 60, opacity: 0 });
+
   const tl = gsap.timeline();
 
+  // Hero Animations (Target specifically to avoid reveal-up conflicts)
   tl.from(".hero-subtitle-large", {
     y: 20,
     opacity: 0,
@@ -88,23 +92,17 @@ const setupAnimations = () => {
   // Scroll Reveal for all .reveal-up elements
   const revealElements = document.querySelectorAll('.reveal-up');
   revealElements.forEach(el => {
-    gsap.fromTo(el,
-      {
-        y: 60,
-        opacity: 0
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          toggleActions: "play none none none"
-        }
+    gsap.to(el, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 85%",
+        toggleActions: "play none none none"
       }
-    );
+    });
   });
 
   // Parallax Effect for Hero (Subtle)
@@ -130,10 +128,15 @@ const setupAnimations = () => {
       scrub: true
     }
   });
+
+  // Refresh ScrollTrigger after initializing everything
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 100);
 };
 
 // Initialize
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   setupCursor();
   setupAnimations();
 });

@@ -217,5 +217,6 @@ section {
 }
 
 .reveal-up {
-  opacity: 0;
+  /* Handled by GSAP for better behavior if JS fails */
+  will-change: transform, opacity;
 }
