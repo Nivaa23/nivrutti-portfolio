@@ -60,38 +60,38 @@ const setupAnimations = () => {
     duration: 0.8,
     ease: "power3.out"
   })
-  .from(".hero-title", {
-    y: 30,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
-  }, "-=0.6")
-  .from(".hero-desc", {
-    y: 20,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power3.out"
-  }, "-=0.6")
-  .from(".hero-actions", {
-    y: 20,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power3.out"
-  }, "-=0.6")
-  .from("nav", {
-    y: -20,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power3.out"
-  }, "-=1");
+    .from(".hero-title", {
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out"
+    }, "-=0.6")
+    .from(".hero-desc", {
+      y: 20,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=0.6")
+    .from(".hero-actions", {
+      y: 20,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=0.6")
+    .from("nav", {
+      y: -20,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=1");
 
   // Scroll Reveal for all .reveal-up elements
   const revealElements = document.querySelectorAll('.reveal-up');
   revealElements.forEach(el => {
-    gsap.fromTo(el, 
-      { 
-        y: 60, 
-        opacity: 0 
+    gsap.fromTo(el,
+      {
+        y: 60,
+        opacity: 0
       },
       {
         y: 0,

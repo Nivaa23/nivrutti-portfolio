@@ -102,14 +102,14 @@
   grid-column: span 2;
   border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 
 .final-bento-5 .sub-img {
   grid-column: span 1;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
 .final-bento-3 {
@@ -119,8 +119,17 @@
   margin-top: 60px;
 }
 
-.final-bento-3 .main-img { grid-column: span 2; border-radius: 32px; overflow: hidden; }
-.final-bento-3 .sub-img { grid-column: span 1; border-radius: 24px; overflow: hidden; }
+.final-bento-3 .main-img {
+  grid-column: span 2;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.final-bento-3 .sub-img {
+  grid-column: span 1;
+  border-radius: 24px;
+  overflow: hidden;
+}
 
 /* Placeholder for wireframes or flow */
 .process-placeholder {
@@ -138,6 +147,13 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .cs-header-grid { grid-template-columns: 1fr; gap: 40px; }
-  .cs-text-col, .cs-sidebar-col { grid-column: span 12; }
+  .cs-header-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cs-text-col,
+  .cs-sidebar-col {
+    grid-column: span 12;
+  }
 }
