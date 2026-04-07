@@ -54,7 +54,7 @@ const setupCursor = () => {
 const setupAnimations = () => {
   const tl = gsap.timeline();
 
-  tl.from(".hero-subtitle", {
+  tl.from(".hero-subtitle-large", {
     y: 20,
     opacity: 0,
     duration: 0.8,

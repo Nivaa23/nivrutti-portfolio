@@ -194,6 +194,10 @@ body, .body {
   body { cursor: auto !important; }
 }
 
+.text-primary-color {
+  color: var(--primary-color) !important;
+}
+
 /* Sections */
 section {
   padding: 120px 0;

@@ -68,24 +68,24 @@ nav {
 
 /* Hero Section */
 .hero {
-  padding-top: 180px;
-  padding-bottom: 120px;
+  padding-top: 140px;
+  padding-bottom: 100px;
   text-align: center;
   overflow: hidden;
 }
 
-.hero-subtitle {
-  color: var(--primary-color);
-  font-weight: 600;
+.hero-subtitle-large {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 120%;
+  color: var(--text-primary);
   margin-bottom: 24px;
-  display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
 .hero-title {
-  max-width: 1000px;
-  margin: 0 auto 32px;
+  max-width: 1200px;
+  margin: 0 auto 16px;
+  font-size: 72px; /* Bigger as per image 2 */
 }
 
 .hero-desc {
@@ -98,6 +98,11 @@ nav {
   display: flex;
   gap: 24px;
   justify-content: center;
+}
+
+.btn i {
+  width: 18px;
+  height: 18px;
 }
 
 /* About Section */
