@@ -2,7 +2,8 @@
 const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smooth: true,
+  smoothWheel: true,
+  smoothTouch: false,
 });
 
 function raf(time) {
@@ -14,10 +15,12 @@ requestAnimationFrame(raf);
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// Custom Cursor
-const cursor = document.querySelector('.custom-cursor');
-if (cursor) {
-  document.addEventListener('mousemove', (e) => {
+// Custom Round Cursor
+const setupCursor = () => {
+  const cursor = document.querySelector('.custom-cursor');
+  if (!cursor) return;
+
+  window.addEventListener('mousemove', (e) => {
     gsap.to(cursor, {
       x: e.clientX,
       y: e.clientY,
@@ -26,51 +29,29 @@ if (cursor) {
     });
   });
 
-  const hoverElements = document.querySelectorAll('a, button, .project-card');
+  const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-card');
   hoverElements.forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    el.addEventListener('mouseenter', () => {
+      gsap.to(cursor, {
+        scale: 3,
+        backgroundColor: 'rgba(71, 70, 229, 0.1)',
+        border: '1px solid #4746E5',
+        duration: 0.3
+      });
+    });
+    el.addEventListener('mouseleave', () => {
+      gsap.to(cursor, {
+        scale: 1,
+        backgroundColor: '#4746E5',
+        border: 'none',
+        duration: 0.3
+      });
+    });
   });
-}
+};
 
-// Navbar background on scroll
-const nav = document.querySelector('nav');
-if (nav) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  });
-}
-
-// Render Projects
-const projectsContainer = document.querySelector('.projects-grid');
-if (projectsContainer) {
-  projects.forEach((project, index) => {
-    const card = document.createElement('a');
-    card.href = `${project.id}.html`;
-    card.className = 'project-card reveal-up';
-    // Use staggered delay for reveal based on index
-    card.style.transitionDelay = `${(index % 2) * 0.1}s`;
-
-    card.innerHTML = `
-      <div class="project-bg" style="background: ${project.gradient}"></div>
-      <div class="project-content">
-        <div class="project-tags">
-          ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-        </div>
-        <h3 class="project-title">${project.name}</h3>
-        <p class="project-desc">${project.tagline}</p>
-      </div>
-    `;
-    projectsContainer.appendChild(card);
-  });
-}
-
-// Entry animations
-window.addEventListener('DOMContentLoaded', () => {
+// Entry Animations
+const setupAnimations = () => {
   const tl = gsap.timeline();
 
   tl.from(".hero-subtitle", {
@@ -79,38 +60,38 @@ window.addEventListener('DOMContentLoaded', () => {
     duration: 0.8,
     ease: "power3.out"
   })
-    .from(".hero-title", {
-      y: 30,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out"
-    }, "-=0.6")
-    .from(".hero-desc", {
-      y: 20,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power3.out"
-    }, "-=0.6")
-    .from(".hero-actions", {
-      y: 20,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power3.out"
-    }, "-=0.6")
-    .from("nav", {
-      y: -20,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power3.out"
-    }, "-=1");
+  .from(".hero-title", {
+    y: 30,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out"
+  }, "-=0.6")
+  .from(".hero-desc", {
+    y: 20,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out"
+  }, "-=0.6")
+  .from(".hero-actions", {
+    y: 20,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out"
+  }, "-=0.6")
+  .from("nav", {
+    y: -20,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out"
+  }, "-=1");
 
-  // Scroll animations
+  // Scroll Reveal for all .reveal-up elements
   const revealElements = document.querySelectorAll('.reveal-up');
   revealElements.forEach(el => {
-    gsap.fromTo(el,
-      {
-        y: 60,
-        opacity: 0
+    gsap.fromTo(el, 
+      { 
+        y: 60, 
+        opacity: 0 
       },
       {
         y: 0,
@@ -119,46 +100,40 @@ window.addEventListener('DOMContentLoaded', () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: el,
-          start: "top 85%", // when top of element hits 85% of screen
+          start: "top 85%",
           toggleActions: "play none none none"
         }
       }
     );
   });
 
-  // Parallax effects
-  gsap.to(".about-image img", {
-    yPercent: 20,
+  // Parallax Effect for Hero (Subtle)
+  gsap.to(".hero-content", {
+    y: 100,
     ease: "none",
     scrollTrigger: {
-      trigger: ".about-image",
-      start: "top bottom",
+      trigger: ".hero",
+      start: "top top",
       end: "bottom top",
       scrub: true
     }
   });
 
-  gsap.to(".bg-orb-1", {
-    y: 300,
-    x: 100,
+  // Parallax for images
+  gsap.to(".about-image img", {
+    y: -50,
     ease: "none",
     scrollTrigger: {
-      trigger: "body",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1
+      trigger: ".about-section",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true
     }
   });
+};
 
-  gsap.to(".bg-orb-2", {
-    y: -300,
-    x: -100,
-    ease: "none",
-    scrollTrigger: {
-      trigger: "body",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1
-    }
-  });
+// Initialize
+window.addEventListener('DOMContentLoaded', () => {
+  setupCursor();
+  setupAnimations();
 });

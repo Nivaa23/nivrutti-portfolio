@@ -1,139 +1,240 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Cranial Space - Case Study</title>
-  <link rel='stylesheet' href='css/global.css'>
-  <link rel='stylesheet' href='css/case-study.css'>
-  <style>
-    html.lenis {
-      height: auto;
-    }
-
-    .lenis.lenis-smooth {
-      scroll-behavior: auto;
-    }
-
-    .lenis.lenis-smooth [data-lenis-prevent] {
-      overscroll-behavior: contain;
-    }
-
-    .lenis.lenis-stopped {
-      overflow: hidden;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: var(--space-md) 0;
-      z-index: 100;
-      background: rgba(5, 5, 5, 0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cranial Space Case Study | Nivrutti Dandekar</title>
+  
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/case-study.css">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-  <div class='custom-cursor'></div>
-  <nav>
-    <div class='container nav-container'><a href='index.html' class='logo'>ND.</a></div>
-  </nav>
-  <main>
-    <section class='cs-hero'>
-      <div class='cs-bg' style='background: linear-gradient(135deg, rgba(88,38,206,0.8), rgba(28,21,50,0.8))'></div>
-      <div class='container'>
-        <a href='index.html' class='back-btn reveal-up'>← Back to Portfolio</a>
-        <h1 class='cs-title reveal-up'>Cranial Space</h1>
-        <p class='cs-tagline reveal-up'>A platform designed to help UI/UX designers grow through structured feedback,
-          community critique, and real-world design challenges.</p>
-        <div class='cs-meta reveal-up'>
-          <div class='cs-meta-item'><span class='cs-meta-label'>Role</span><span class='cs-meta-value'>Lead
-              Designer</span></div>
-          <div class='cs-meta-item'><span class='cs-meta-label'>Type</span><span class='cs-meta-value'>Web
-              Platform</span></div>
-          <div class='cs-meta-item'><span class='cs-meta-label'>Duration</span><span class='cs-meta-value'>2-3
-              Months</span></div>
-        </div>
+  <div class="custom-cursor"></div>
+
+  <nav class="nav-full">
+    <div class="nav-container">
+      <a href="index.html" class="logo">ND</a>
+      
+      <div class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="index.html#contact">Contact</a>
       </div>
-    </section>
-    <section class='cs-content-section container reveal-up'>
-      <div class='cs-grid'>
-        <div class='cs-sidebar'>
-          <h3>The Problem</h3>
-        </div>
-        <div class='cs-bodytext'>
-          <p>Designers often lack a structured, reliable space to receive actionable feedback, participate in rigorous
-            critiques, and solve practical, real-world challenges.</p>
-        </div>
-      </div>
-    </section>
-    <section class='cs-content-section container reveal-up'>
-      <div class='cs-mockup glass-panel'>
-        <div
-          style='width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(88,38,206,0.8), rgba(28,21,50,0.8))'>
-          <h2 style='font-size: 2rem; color: #fff; mix-blend-mode: overlay;'>Product Mockup Preview</h2>
-        </div>
-      </div>
-    </section>
-    <section class='cs-content-section container reveal-up'>
-      <div class='cs-grid'>
-        <div class='cs-sidebar'>
-          <h3 style='color: #9D74FF'>Expected Impact</h3>
-        </div>
-        <div class='cs-bodytext'>
-          <p>Creates a centralized, growth-oriented hub that fosters mentorship, rigorous design thinking, and
-            high-quality discussions.</p>
-        </div>
-      </div>
-    </section>
-    <a href='novance-ai.html' class='next-project reveal-up' style='display: block'>
-      <div class='container'>
-        <h4>Next Project</h4>
-        <h2>Novance AI</h2>
-      </div>
-    </a>
-  </main>
-  <footer style='padding: var(--space-xl) 0; border-top: 1px solid var(--glass-border); text-align: center;'>
-    <div class='container'>
-      <p class='copyright'>&copy; 2026 Nivrutti Dandekar.</p>
+      
+      <a href="mailto:nivrutti.dandekar@example.com" class="nav-email">
+        <i data-lucide="mail"></i>
+      </a>
     </div>
+  </nav>
+
+  <main class="container">
+    <header class="case-study-hero reveal-up">
+      <a href="projects.html" class="back-btn">
+        <i data-lucide="arrow-left"></i> Back to Projects
+      </a>
+      
+      <div class="cs-header-grid">
+        <div class="cs-title">
+          <div class="project-type-pills" style="margin-bottom: 24px;">
+            <span class="type-pill">Platform</span>
+            <span class="type-pill">Web App</span>
+          </div>
+          <h1>Cranial Space</h1>
+          <p class="body-large">A platform designed to help UI/UX designers grow through structured feedback, community-driven critique and real-world design challenges.</p>
+        </div>
+        
+        <div class="cs-meta-grid">
+          <div class="meta-item">
+            <span class="label">Role</span>
+            <p>Product Designer / Founder</p>
+          </div>
+          <div class="meta-item">
+            <span class="label">Timeline</span>
+            <p>Ongoing</p>
+          </div>
+          <div class="meta-item">
+            <span class="label">Tools</span>
+            <p>Figma, Notion</p>
+          </div>
+          <div class="meta-item">
+            <span class="label">Project Type</span>
+            <p>Startup Product</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Problem Statement -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Problem Statement</h2>
+      <div class="cs-content-grid">
+        <div class="cs-text-col">
+          <p class="body-large" style="margin-bottom: 32px;">Many aspiring designers face a major challenge after learning design fundamentals — they don't know how to improve further. While there are many platforms for sharing work, very few provide structured feedback or mentorship that helps designers understand what they should improve.</p>
+          
+          <h4 style="margin-bottom: 20px;">Key Issues Identified:</h4>
+          <ul class="skill-list body" style="margin-bottom: 40px;">
+            <li>Designers struggle to receive high-quality, actionable feedback</li>
+            <li>Most platforms focus on showcasing work rather than improving it</li>
+            <li>There is no clear growth framework for designers</li>
+            <li>Beginners often feel lost after completing online courses</li>
+            <li>Portfolio development lacks structured critique and iteration</li>
+          </ul>
+        </div>
+        <div class="cs-sidebar-col">
+          <div class="impact-card">
+            <h4>Why This Matters</h4>
+            <p class="body">Design growth happens through feedback and iteration, not just creating projects. Without proper critique, designers often repeat the same mistakes and struggle to progress to a professional level.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Vision -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Product Vision</h2>
+      <div class="cs-text-col">
+        <p class="body">The vision behind Cranial Space is to create a growth ecosystem for designers where learning, feedback and portfolio development work together.</p>
+        <div style="margin-top: 32px;">
+          <p class="body"><strong>Mission:</strong> To empower UI/UX designers through community-driven critique, structured growth opportunities and industry-relevant exposure.</p>
+          <p class="body"><strong>Vision:</strong> To become the global launchpad for aspiring UI/UX designers by creating a nurturing environment that bridges learning, feedback and career acceleration.</p>
+          <p class="body"><strong>Elevator Pitch:</strong> Cranial Space is a design-focused platform that helps UI/UX designers grow faster through structured feedback, community engagement and portfolio-building tools.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research & Insights -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Research & Insights</h2>
+      <div class="cs-content-grid">
+        <div class="cs-text-col">
+          <p class="body">To understand the challenges designers face, I analyzed common patterns across design communities, portfolio platforms and learning platforms. Key insights included:</p>
+          <ul class="skill-list body" style="margin-top: 24px;">
+            <li>Designers often rely on random feedback from social media</li>
+            <li>Most critiques are subjective and inconsistent</li>
+            <li>Portfolio platforms focus on presentation rather than improvement</li>
+            <li>Many designers want structured learning after courses</li>
+          </ul>
+        </div>
+        <div class="cs-sidebar-col">
+          <div class="impact-card" style="background: var(--primary-color); color: white;">
+            <h4 style="color: white;">Opportunity</h4>
+            <p>There is an opportunity to create a feedback-driven design growth platform rather than just another portfolio-sharing platform.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ideation & Product Strategy -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Ideation & Product Strategy</h2>
+      <div class="cs-text-col">
+        <p class="body">The goal during ideation was to design a platform that actively helps designers improve, rather than just showcase their work. The platform structure was designed around three main pillars: Community Critique, Structured Growth, and Portfolio Development.</p>
+        <ul class="skill-list body" style="margin-top: 24px;">
+          <li>A UX Scoring system to evaluate design work</li>
+          <li>Structured critique frameworks for feedback</li>
+          <li>Design challenges based on real-world briefs</li>
+          <li>Exportable critique reports that designers can attach to portfolios</li>
+          <li>Mentorship-driven growth paths</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Key Features</h2>
+      <div class="cs-content-grid">
+        <div class="cs-text-col">
+          <div class="meta-item" style="margin-bottom: 24px;">
+            <p><strong>Community UX Scoring System:</strong> Designers receive structured feedback and scoring.</p>
+          </div>
+          <div class="meta-item" style="margin-bottom: 24px;">
+            <p><strong>Community Critique Loop:</strong> A feedback system where designers review each other’s work.</p>
+          </div>
+          <div class="meta-item" style="margin-bottom: 24px;">
+            <p><strong>Real-World Design Challenges:</strong> Industry-style design briefs to build strong portfolios.</p>
+          </div>
+          <div class="meta-item" style="margin-bottom: 24px;">
+            <p><strong>Portfolio-Ready Critique Reports:</strong> Exportable design feedback</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Design -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Final Design</h2>
+      <p class="body">The final design system was focused on clarity, accessibility, and community interaction. Below is the high-fidelity representation of the core experience.</p>
+      
+      <!-- Bento Grid with 1 main + 4 sub images as requested -->
+      <div class="final-bento-5">
+        <div class="main-img">
+          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1200" alt="Main Experience">
+        </div>
+        <div class="sub-img">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" alt="UI Element 1">
+        </div>
+        <div class="sub-img">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=600" alt="UI Element 2">
+        </div>
+        <div class="sub-img">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600" alt="UI Element 3">
+        </div>
+        <div class="sub-img">
+          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=600" alt="UI Element 4">
+        </div>
+      </div>
+    </section>
+
+    <!-- Expected Impact -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Expected Impact</h2>
+      <div class="cs-content-grid">
+        <div class="cs-text-col">
+          <ul class="skill-list body">
+            <li>Faster skill improvement for designers</li>
+            <li>Higher-quality portfolio projects</li>
+            <li>Stronger design communities</li>
+            <li>Clearer growth paths for beginners</li>
+            <li>Increased credibility for designers through structured critique</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reflections & Learnings -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Reflections & Learnings</h2>
+      <div class="cs-text-col">
+        <p class="body">Cranial Space represents my exploration into product design beyond individual interfaces. Through this project, I learned how to think about product strategy, community-driven platforms, designing systems rather than just screens, and creating structured growth experiences for users. Building Cranial Space helped me understand how design can shape learning ecosystems and communities.</p>
+      </div>
+    </section>
+
+    <!-- Footer CTA (Reused from index) -->
+    <section class="footer-cta" style="border-top: 1px solid var(--border-color); margin-top: 80px;">
+      <h2>Let’s create something amazing together</h2>
+      <p class="body-large">I’m currently available for freelance projects and open to discussing new opportunities.</p>
+      <a href="https://www.linkedin.com/in/nivrutti-dandekar-71638768/" class="btn btn-primary" target="_blank">
+        Say Hello <i data-lucide="message-circle"></i>
+      </a>
+    </section>
+  </main>
+
+  <footer class="container" style="padding: 40px 0; border-top: 1px solid var(--border-color); text-align: center;">
+    <p class="caption" style="color: var(--text-secondary);">&copy; 2026 Nivrutti Dandekar. Designed with precision and purposeful intent.</p>
   </footer>
-  <script src='https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js'></script>
-  <script>
-    const lenis = new Lenis({ duration: 1.2, smooth: true });
-    function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    gsap.registerPlugin(ScrollTrigger);
-    const cursor = document.querySelector('.custom-cursor');
-    if (cursor) {
-      document.addEventListener('mousemove', e => { gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: 'power2.out' }); });
-    }
-    gsap.from('.reveal-up', {
-      y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: 'power3.out',
-      scrollTrigger: { trigger: 'body', start: 'top 80%' }
-    });
-    document.querySelectorAll('.cs-content-section.reveal-up').forEach(el => {
-      gsap.fromTo(el, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
-    });
-  </script>
+
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 
 </html>

@@ -1,139 +1,184 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>FAMA – Agricultural Platform - Case Study</title>
-  <link rel='stylesheet' href='css/global.css'>
-  <link rel='stylesheet' href='css/case-study.css'>
-  <style>
-    html.lenis {
-      height: auto;
-    }
-
-    .lenis.lenis-smooth {
-      scroll-behavior: auto;
-    }
-
-    .lenis.lenis-smooth [data-lenis-prevent] {
-      overscroll-behavior: contain;
-    }
-
-    .lenis.lenis-stopped {
-      overflow: hidden;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: var(--space-md) 0;
-      z-index: 100;
-      background: rgba(5, 5, 5, 0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAMA Agriculture Case Study | Nivrutti Dandekar</title>
+  
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/case-study.css">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-  <div class='custom-cursor'></div>
-  <nav>
-    <div class='container nav-container'><a href='index.html' class='logo'>ND.</a></div>
-  </nav>
-  <main>
-    <section class='cs-hero'>
-      <div class='cs-bg' style='background: linear-gradient(135deg, rgba(46,163,84,0.8), rgba(12,41,20,0.8))'></div>
-      <div class='container'>
-        <a href='index.html' class='back-btn reveal-up'>← Back to Portfolio</a>
-        <h1 class='cs-title reveal-up'>FAMA – Agricultural Platform</h1>
-        <p class='cs-tagline reveal-up'>A web platform promoting sustainable agriculture and connecting communities with
-          responsible farming initiatives.</p>
-        <div class='cs-meta reveal-up'>
-          <div class='cs-meta-item'><span class='cs-meta-label'>Role</span><span class='cs-meta-value'>Lead
-              Designer</span></div>
-          <div class='cs-meta-item'><span class='cs-meta-label'>Type</span><span class='cs-meta-value'>Web
-              Platform</span></div>
-          <div class='cs-meta-item'><span class='cs-meta-label'>Duration</span><span class='cs-meta-value'>2-3
-              Months</span></div>
-        </div>
+  <div class="custom-cursor"></div>
+
+  <nav class="nav-full">
+    <div class="nav-container">
+      <a href="index.html" class="logo">ND</a>
+      
+      <div class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="index.html#contact">Contact</a>
       </div>
-    </section>
-    <section class='cs-content-section container reveal-up'>
-      <div class='cs-grid'>
-        <div class='cs-sidebar'>
-          <h3>The Problem</h3>
-        </div>
-        <div class='cs-bodytext'>
-          <p>Local farmers struggled to connect with eco-conscious consumers, and consumers lacked transparency
-            regarding farming practices.</p>
-        </div>
-      </div>
-    </section>
-    <section class='cs-content-section container reveal-up'>
-      <div class='cs-mockup glass-panel'>
-        <div
-          style='width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(46,163,84,0.8), rgba(12,41,20,0.8))'>
-          <h2 style='font-size: 2rem; color: #fff; mix-blend-mode: overlay;'>Product Mockup Preview</h2>
-        </div>
-      </div>
-    </section>
-    <section class='cs-content-section container reveal-up'>
-      <div class='cs-grid'>
-        <div class='cs-sidebar'>
-          <h3 style='color: #4DEB7E'>Expected Impact</h3>
-        </div>
-        <div class='cs-bodytext'>
-          <p>Bridged the gap between local sustainable farms and consumers, fostering community engagement and
-            increasing local farm revenue.</p>
-        </div>
-      </div>
-    </section>
-    <a href='happihosts.html' class='next-project reveal-up' style='display: block'>
-      <div class='container'>
-        <h4>Next Project</h4>
-        <h2>Happihosts</h2>
-      </div>
-    </a>
-  </main>
-  <footer style='padding: var(--space-xl) 0; border-top: 1px solid var(--glass-border); text-align: center;'>
-    <div class='container'>
-      <p class='copyright'>&copy; 2026 Nivrutti Dandekar.</p>
+      
+      <a href="mailto:nivrutti.dandekar@example.com" class="nav-email">
+        <i data-lucide="mail"></i>
+      </a>
     </div>
+  </nav>
+
+  <main class="container">
+    <header class="case-study-hero reveal-up">
+      <a href="projects.html" class="back-btn">
+        <i data-lucide="arrow-left"></i> Back to Projects
+      </a>
+      
+      <div class="cs-header-grid">
+        <div class="cs-title">
+          <div class="project-type-pills" style="margin-bottom: 24px;">
+            <span class="type-pill">Agriculture</span>
+            <span class="type-pill">Web Platform</span>
+          </div>
+          <h1>FAMA - Agricultural Website</h1>
+          <p class="body-large">A multinational agriculture organization focused on improving food security and agricultural productivity across Africa.</p>
+        </div>
+        
+        <div class="cs-meta-grid">
+          <div class="meta-item">
+            <span class="label">Role</span>
+            <p>UI/UX Designer</p>
+          </div>
+          <div class="meta-item">
+            <span class="label">Timeline</span>
+            <p>2-3 Weeks</p>
+          </div>
+          <div class="meta-item">
+            <span class="label">Tools</span>
+            <p>Figma</p>
+          </div>
+          <div class="meta-item">
+            <span class="label">Project Type</span>
+            <p>Internship Project</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Problem Statement -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Problem Statement</h2>
+      <div class="cs-content-grid">
+        <div class="cs-text-col">
+          <p class="body-large" style="margin-bottom: 32px;">Agriculture organizations working across multiple regions often struggle to communicate their initiatives and impact effectively through digital platforms. Without a well-structured website, it becomes difficult for investors, partners, and stakeholders to understand the organization’s projects and long-term goals.</p>
+          
+          <h4 style="margin-bottom: 20px;">Key Issues Identified:</h4>
+          <ul class="skill-list body" style="margin-bottom: 40px;">
+            <li>Limited visibility into agricultural initiatives</li>
+            <li>Difficulty communicating sustainability impact</li>
+            <li>Lack of clear structure for presenting projects</li>
+            <li>Limited engagement with potential partners and investors</li>
+          </ul>
+        </div>
+        <div class="cs-sidebar-col">
+          <div class="impact-card">
+            <h4>Why This Matters</h4>
+            <p class="body">A well-designed website helps organizations communicate their mission clearly, attract investment, and build trust with stakeholders.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Goals -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Design Goals</h2>
+      <div class="cs-text-col">
+        <ul class="skill-list body">
+          <li>Clearly present FAMA’s mission and vision</li>
+          <li>Showcase agricultural initiatives and sustainability effects</li>
+          <li>Provide structured information about projects</li>
+          <li>Improve engagement with partners and investors</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- UX Audit -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">UX Audit of the Existing System</h2>
+      <div class="cs-text-col">
+        <p class="body">An analysis revealed that many platforms struggle to balance storytelling with structured information about projects and impact.</p>
+        <ul class="skill-list body" style="margin-top: 24px;">
+          <li>Agricultural projects were often presented without clear structure</li>
+          <li>Impact metrics were not highlighted effectively</li>
+          <li>Sustainability initiatives were difficult to understand quickly</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Ideation & Exploration -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Ideation & Exploration</h2>
+      <p class="body">During ideation, the main focus was designing a platform that communicates both the organization’s mission and its real-world impact.</p>
+      <ul class="skill-list body" style="margin-top: 24px;">
+        <li>Clear storytelling through structured sections</li>
+        <li>Dedicated pages for agricultural initiatives</li>
+        <li>Highlighting impact metrics and sustainability goals</li>
+      </ul>
+    </section>
+
+    <!-- Final Design -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Final Design</h2>
+      <p class="body">The final design focuses on presenting agricultural initiatives through a structured and engaging digital experience.</p>
+      
+      <!-- Bento Grid with 1 main + 2 sub images -->
+      <div class="final-bento-3">
+        <div class="main-img">
+          <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=1200" alt="FAMA Main">
+        </div>
+        <div class="sub-img">
+          <img src="https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80&w=600" alt="Field 1">
+        </div>
+        <div class="sub-img">
+          <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=600" alt="Field 2">
+        </div>
+      </div>
+    </section>
+
+    <!-- Expected Impact -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Expected Impact</h2>
+      <div class="cs-text-col">
+        <ul class="skill-list body">
+          <li>Better communication of agricultural initiatives</li>
+          <li>Increased engagement with partners and investors</li>
+          <li>Greater visibility for sustainability efforts</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Reflections & Learnings -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Reflections & Learnings</h2>
+      <p class="body">This project helped me understand the importance of designing websites that communicate complex initiatives and impact-driven missions effectively.</p>
+    </section>
+  </main>
+
+  <footer class="container" style="padding: 40px 0; border-top: 1px solid var(--border-color); text-align: center;">
+    <p class="caption" style="color: var(--text-secondary);">&copy; 2026 Nivrutti Dandekar. Designed with precision and purposeful intent.</p>
   </footer>
-  <script src='https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js'></script>
-  <script>
-    const lenis = new Lenis({ duration: 1.2, smooth: true });
-    function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    gsap.registerPlugin(ScrollTrigger);
-    const cursor = document.querySelector('.custom-cursor');
-    if (cursor) {
-      document.addEventListener('mousemove', e => { gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: 'power2.out' }); });
-    }
-    gsap.from('.reveal-up', {
-      y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: 'power3.out',
-      scrollTrigger: { trigger: 'body', start: 'top 80%' }
-    });
-    document.querySelectorAll('.cs-content-section.reveal-up').forEach(el => {
-      gsap.fromTo(el, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
-    });
-  </script>
+
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 
 </html>
