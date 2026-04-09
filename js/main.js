@@ -118,16 +118,7 @@ const setupAnimations = () => {
   });
 
   // Parallax for images
-  gsap.to(".about-image img", {
-    y: -50,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".about-section",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true
-    }
-  });
+  // Removed conflicting parallax to ensure image fills container perfectly without gaps
 
   // Refresh ScrollTrigger after initializing everything
   setTimeout(() => {
