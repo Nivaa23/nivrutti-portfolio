@@ -1,138 +1,188 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Utility Pay - Case Study</title>
-  <link rel='stylesheet' href='css/global.css'>
-  <link rel='stylesheet' href='css/case-study.css'>
-  <style>
-    html.lenis {
-      height: auto;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utility Pay Case Study | Nivrutti Dandekar</title>
 
-    .lenis.lenis-smooth {
-      scroll-behavior: auto;
-    }
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/case-study.css">
 
-    .lenis.lenis-smooth [data-lenis-prevent] {
-      overscroll-behavior: contain;
-    }
-
-    .lenis.lenis-stopped {
-      overflow: hidden;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: var(--space-md) 0;
-      z-index: 100;
-      background: rgba(5, 5, 5, 0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-  </style>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-  <div class='custom-cursor'></div>
-  <nav>
-    <div class='container nav-container'><a href='index.html' class='logo'>ND.</a></div>
-  </nav>
-  <main>
-    <section class='cs-hero'>
-      <div class='cs-bg' style='background: linear-gradient(135deg, rgba(15,163,180,0.8), rgba(4,45,50,0.8))'></div>
-      <div class='container'>
-        <a href='index.html' class='back-btn reveal-up'>← Back to Portfolio</a>
-        <h1 class='cs-title reveal-up'>Utility Pay</h1>
-        <p class='cs-tagline reveal-up'>A bill management app that helps users track, manage, and pay multiple utilities
-          in one place.</p>
-        <div class='cs-meta reveal-up'>
-          <div class='cs-meta-item'><span class='cs-meta-label'>Role</span><span class='cs-meta-value'>Lead
-              Designer</span></div>
-          <div class='cs-meta-item'><span class='cs-meta-label'>Type</span><span class='cs-meta-value'>Mobile App</span>
-          </div>
-          <div class='cs-meta-item'><span class='cs-meta-label'>Duration</span><span class='cs-meta-value'>2-3
-              Months</span></div>
-        </div>
+  <div class="custom-cursor"></div>
+
+  <nav class="nav-full">
+    <div class="nav-container">
+      <a href="index.html" class="logo">ND</a>
+
+      <div class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="index.html#contact">Contact</a>
       </div>
-    </section>
-    <section class='cs-content-section container reveal-up'>
-      <div class='cs-grid'>
-        <div class='cs-sidebar'>
-          <h3>The Problem</h3>
-        </div>
-        <div class='cs-bodytext'>
-          <p>Tracking multiple utility bills across different provider portals leads to missed payments and user
-            frustration.</p>
-        </div>
-      </div>
-    </section>
-    <section class='cs-content-section container reveal-up'>
-      <div class='cs-mockup glass-panel'>
-        <div
-          style='width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(15,163,180,0.8), rgba(4,45,50,0.8))'>
-          <h2 style='font-size: 2rem; color: #fff; mix-blend-mode: overlay;'>Product Mockup Preview</h2>
-        </div>
-      </div>
-    </section>
-    <section class='cs-content-section container reveal-up'>
-      <div class='cs-grid'>
-        <div class='cs-sidebar'>
-          <h3 style='color: #38EDFC'>Expected Impact</h3>
-        </div>
-        <div class='cs-bodytext'>
-          <p>Designed an elegant, unified dashboard that securely consolidates tracking and automates payment flows.</p>
-        </div>
-      </div>
-    </section>
-    <a href='cranial-space.html' class='next-project reveal-up' style='display: block'>
-      <div class='container'>
-        <h4>Next Project</h4>
-        <h2>Cranial Space</h2>
-      </div>
-    </a>
-  </main>
-  <footer style='padding: var(--space-xl) 0; border-top: 1px solid var(--glass-border); text-align: center;'>
-    <div class='container'>
-      <p class='copyright'>&copy; 2026 Nivrutti Dandekar.</p>
+
+      <a href="mailto:nivrutti.dandekar@example.com" class="nav-email">
+        <i data-lucide="mail"></i>
+      </a>
     </div>
+  </nav>
+
+  <main class="container">
+    <header class="case-study-hero reveal-up">
+      <a href="projects.html" class="back-btn">
+        <i data-lucide="arrow-left"></i> Back to Projects
+      </a>
+
+      <div class="cs-header-grid">
+        <div class="cs-title">
+          <div class="project-type-pills" style="margin-bottom: 24px;">
+            <span class="type-pill">Fintech</span>
+            <span class="type-pill">Mobile App</span>
+          </div>
+          <h1>Utility Pay</h1>
+          <p class="body-large">A bill management app that helps users track, manage, and pay multiple utilities in one place.</p>
+        </div>
+
+        <div class="cs-meta-grid">
+          <div class="meta-item">
+            <span class="label">Role</span>
+            <p>UI/UX Designer</p>
+          </div>
+          <div class="meta-item">
+            <span class="label">Timeline</span>
+            <p>2–3 Weeks</p>
+          </div>
+          <div class="meta-item">
+            <span class="label">Tools</span>
+            <p>Figma</p>
+          </div>
+          <div class="meta-item">
+            <span class="label">Project Type</span>
+            <p>Personal Project</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Problem Statement -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Problem Statement</h2>
+      <div class="cs-content-grid">
+        <div class="cs-text-col">
+          <p class="body-large" style="margin-bottom: 32px;">Managing utility bills is often a fragmented and stressful experience. Users have to log into multiple portals with different due dates and confusing interfaces, leading to missed payments and a lack of overall expense visibility.</p>
+
+          <h4 style="margin-bottom: 20px;">Key Issues Identified:</h4>
+          <ul class="skill-list body" style="margin-bottom: 40px;">
+            <li>Portal Fatigue: Switching between multiple apps and websites to check balances</li>
+            <li>Payment Slippage: Lack of unified reminders leading to unintentional late fees</li>
+            <li>Visual Overload: Legacy portals designed for old systems, not modern users</li>
+            <li>Expense Fragmentation: Difficulty in understanding total monthly cost of living</li>
+          </ul>
+        </div>
+        <div class="cs-sidebar-col">
+          <div class="impact-card">
+            <h4>Why This Matters</h4>
+            <p class="body">Reducing the cognitive burden of recurring tasks helps users maintain financial health and peace of mind through a single, trustworthy interface.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Goals -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Design Goals</h2>
+      <div class="cs-text-col">
+        <ul class="skill-list body">
+          <li><strong>Consolidation:</strong> Bring all major utilities into a single, unified dashboard</li>
+          <li><strong>Clarity:</strong> Use clean typography and high contrast to make debt and deadlines unmistakable</li>
+          <li><strong>Automation:</strong> Simplify the payment flow to a single action where possible</li>
+          <li><strong>Insights:</strong> Provide visual breakdowns of spending trends over time</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Research & Insights -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Research & Insights</h2>
+      <div class="cs-text-col">
+        <p class="body">Research showed that users care most about "How much do I owe right now?" and "When is it due?". Immediate actionable data was prioritized over high-level analytics, driving the decision to place upcoming bills at the top of the experience.</p>
+      </div>
+    </section>
+
+    <!-- Ideation & Exploration -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Ideation & Exploration</h2>
+      <div class="cs-text-col">
+        <p class="body">I pivoted from complex calendars to an inbox-style card system. Each bill is treated as an item to be "cleared," providing a sense of accomplishment once paid. User flows were streamlined to ensure payments could be completed in under three taps.</p>
+      </div>
+    </section>
+
+    <!-- Final Design -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Final Design</h2>
+      <p class="body">The final UI leverages a clean, high-contrast aesthetic with soft gradients to make stressful tasks feel approachable.</p>
+
+      <div class="final-bento-5">
+        <div class="main-img">
+          <img src="assets/images/projects/utility-pay.png"
+            alt="Utility Pay Dashboard">
+        </div>
+        <div class="sub-img">
+          <img src="assets/images/projects/utility-pay.png"
+            alt="UI Detail 1" style="object-position: top center;">
+        </div>
+        <div class="sub-img">
+          <img src="assets/images/projects/utility-pay.png"
+            alt="UI Detail 2" style="object-position: center left;">
+        </div>
+        <div class="sub-img">
+          <img src="assets/images/projects/utility-pay.png"
+            alt="UI Detail 3" style="object-position: center right;">
+        </div>
+        <div class="sub-img">
+          <img src="assets/images/projects/utility-pay.png"
+            alt="UI Detail 4" style="object-position: bottom center;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Expected Impact -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Expected Impact</h2>
+      <div class="cs-text-col">
+        <ul class="skill-list body">
+          <li>Significant reduction in missed payments through unified notifications</li>
+          <li>70% reduction in time spent managing multiple utility accounts</li>
+          <li>Better visibility into seasonal spending and usage patterns</li>
+          <li>Increased confidence in overall financial management</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Reflections & Learnings -->
+    <section class="cs-section reveal-up">
+      <h2 class="cs-section-title">Reflections & Learnings</h2>
+      <p class="body">This project taught me the value of anticipatory design. By anticipating user anxiety around due dates, I was able to design features like the clear status pills and simplified flows that provide immediate clarity.</p>
+    </section>
+  </main>
+
+  <footer class="container" style="padding: 40px 0; border-top: 1px solid var(--border-color); text-align: center;">
+    <p class="caption" style="color: var(--text-secondary);">&copy; 2026 Nivrutti Dandekar. Designed with precision and
+      purposeful intent.</p>
   </footer>
-  <script src='https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js'></script>
-  <script>
-    const lenis = new Lenis({ duration: 1.2, smooth: true });
-    function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    gsap.registerPlugin(ScrollTrigger);
-    const cursor = document.querySelector('.custom-cursor');
-    if (cursor) {
-      document.addEventListener('mousemove', e => { gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: 'power2.out' }); });
-    }
-    gsap.from('.reveal-up', {
-      y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: 'power3.out',
-      scrollTrigger: { trigger: 'body', start: 'top 80%' }
-    });
-    document.querySelectorAll('.cs-content-section.reveal-up').forEach(el => {
-      gsap.fromTo(el, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
-    });
-  </script>
+
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 
 </html>
