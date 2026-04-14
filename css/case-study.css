@@ -110,6 +110,7 @@
   border-radius: 32px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  background: #BDB2FF;
   aspect-ratio: 16 / 9;
 }
 
@@ -118,7 +119,14 @@
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  background: #0B0C10;
   aspect-ratio: 4 / 3;
+}
+
+/* Light Variant for white-themed projects like Kotak */
+.final-bento-5.kotak-variant .sub-img {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
 }
 
 .final-bento-3 {
@@ -142,7 +150,13 @@
   aspect-ratio: 4 / 3;
 }
 
-.final-bento-5 img,
+.final-bento-5 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .final-bento-3 img {
   width: 100%;
   height: 100%;
