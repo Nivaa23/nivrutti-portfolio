@@ -3,6 +3,35 @@
   padding-top: 140px;
   padding-bottom: 80px;
   border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+/* Ensure content is positioned correctly */
+.back-btn, 
+.cs-header-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure content stays above blobs and centered within the container width */
+.back-btn, 
+.cs-header-grid {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px; /* Default gutter */
+}
+
+@media (max-width: 1400px) {
+  .back-btn, 
+  .cs-header-grid {
+    padding: 0 40px;
+  }
 }
 
 .back-btn {
@@ -123,10 +152,15 @@
   aspect-ratio: 4 / 3;
 }
 
-/* Light Variant for white-themed projects like Kotak */
-.final-bento-5.kotak-variant .sub-img {
+/* Light Variant for white-themed projects like Kotak or Utility Pay */
+.final-bento-5.kotak-variant .sub-img,
+.final-bento-5.utility-variant .sub-img {
   background: #FFFFFF;
   border: 1px solid var(--border-color);
+}
+
+.final-bento-5.utility-variant .main-img {
+  background: #BDB2FF; /* Matches the mockup background */
 }
 
 .final-bento-3 {
@@ -187,6 +221,10 @@
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.final-bento-5.utility-variant .main-img img {
+  object-fit: cover;
 }
 
 .final-bento-3 img {

@@ -182,31 +182,6 @@ body,
   transform: translateY(-2px);
 }
 
-/* Custom Cursor */
-.custom-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background: var(--primary-color);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: translate 0.1s linear, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-  opacity: 0.8;
-  mix-blend-mode: multiply;
-  /* Looks nice on light background */
-}
-
-@media (max-width: 1024px) {
-  .custom-cursor {
-    display: none;
-  }
-
-  body {
-    cursor: auto !important;
-  }
-}
-
 .text-primary-color {
   color: var(--primary-color) !important;
 }

@@ -15,41 +15,6 @@ requestAnimationFrame(raf);
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// Custom Round Cursor
-const setupCursor = () => {
-  const cursor = document.querySelector('.custom-cursor');
-  if (!cursor) return;
-
-  window.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.1,
-      ease: "power2.out"
-    });
-  });
-
-  const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-card');
-  hoverElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      gsap.to(cursor, {
-        scale: 3,
-        backgroundColor: 'rgba(71, 70, 229, 0.1)',
-        border: '1px solid #4746E5',
-        duration: 0.3
-      });
-    });
-    el.addEventListener('mouseleave', () => {
-      gsap.to(cursor, {
-        scale: 1,
-        backgroundColor: '#4746E5',
-        border: 'none',
-        duration: 0.3
-      });
-    });
-  });
-};
-
 // Entry Animations
 const setupAnimations = () => {
   // Set initial state for all revealable elements
@@ -241,9 +206,11 @@ const setupFiltering = () => {
 
 // Initialize
 window.addEventListener('load', () => {
-  setupCursor();
   setupAnimations();
   setupFiltering();
+
+  // Refresh ScrollTrigger to catch all layout positions
+  ScrollTrigger.refresh();
 
   // Apply initial adaptive layout for "All"
   const projectCards = document.querySelectorAll('.project-card');
