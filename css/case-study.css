@@ -150,6 +150,12 @@
   aspect-ratio: 4 / 3;
 }
 
+.final-bento-3.punccrt-variant .sub-img {
+  aspect-ratio: 3 / 4;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+}
+
 .final-bento-4 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -188,6 +194,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.final-bento-3.punccrt-variant img {
+  object-fit: cover;
+  object-position: top;
 }
 
 .final-bento-4 img {
