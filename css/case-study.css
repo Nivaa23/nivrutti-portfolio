@@ -9,14 +9,14 @@
 }
 
 /* Ensure content is positioned correctly */
-.back-btn, 
+.back-btn,
 .cs-header-grid {
   position: relative;
   z-index: 1;
 }
 
 /* Ensure content stays above blobs and centered within the container width */
-.back-btn, 
+.back-btn,
 .cs-header-grid {
   position: relative;
   z-index: 1;
@@ -24,11 +24,13 @@
   max-width: var(--container-width);
   margin-left: auto;
   margin-right: auto;
-  padding: 0 24px; /* Default gutter */
+  padding: 0 24px;
+  /* Default gutter */
 }
 
 @media (max-width: 1400px) {
-  .back-btn, 
+
+  .back-btn,
   .cs-header-grid {
     padding: 0 40px;
   }
@@ -160,7 +162,8 @@
 }
 
 .final-bento-5.utility-variant .main-img {
-  background: #BDB2FF; /* Matches the mockup background */
+  background: #BDB2FF;
+  /* Matches the mockup background */
 }
 
 .final-bento-3 {
