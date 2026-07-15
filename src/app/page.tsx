@@ -77,11 +77,12 @@ const getIcon = (iconName: string) => {
   }
 };
 
-
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const revealImgRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Setup scroll trigger reveal animations
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -89,7 +90,6 @@ export default function HomePage() {
     gsap.set(".reveal-up-sec", { y: 60, opacity: 0 });
 
     const ctx = gsap.context(() => {
-      // Scroll Reveal for all .reveal-up-sec elements
       const revealElements = document.querySelectorAll(".reveal-up-sec");
       revealElements.forEach((el) => {
         gsap.to(el, {
@@ -114,198 +114,188 @@ export default function HomePage() {
     return () => ctx.revert();
   }, []);
 
+  // Spotlight mouse track reveal loop
+  useEffect(() => {
+    const imgLayer = revealImgRef.current;
+    if (!imgLayer) return;
+
+    const SPOTLIGHT_R = 260;
+    const mouse = { x: -999, y: -999 };
+    const smooth = { x: -999, y: -999 };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    let frameId: number;
+
+    const loop = () => {
+      if (smooth.x === -999) {
+        smooth.x = mouse.x;
+        smooth.y = mouse.y;
+      } else {
+        smooth.x += (mouse.x - smooth.x) * 0.12;
+        smooth.y += (mouse.y - smooth.y) * 0.12;
+      }
+
+      if (smooth.x !== -999) {
+        const mask = `radial-gradient(circle ${SPOTLIGHT_R}px at ${smooth.x}px ${smooth.y}px, black 0%, black 40%, rgba(0,0,0,0.75) 60%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0.12) 88%, transparent 100%)`;
+        imgLayer.style.maskImage = mask;
+        imgLayer.style.webkitMaskImage = mask;
+        imgLayer.style.maskSize = "100% 100%";
+        imgLayer.style.webkitMaskSize = "100% 100%";
+      }
+
+      frameId = requestAnimationFrame(loop);
+    };
+
+    frameId = requestAnimationFrame(loop);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(frameId);
+    };
+  }, []);
+
+  // Split words for text reveal staggered delays
+  const headlineText = "I craft meaningful, intuitive and beautiful digital experiences.";
+  const words = headlineText.split(" ");
+
   return (
     <div ref={containerRef} style={{ backgroundColor: "#f9fafb" }}>
-      {/* Dynamic Header Navbar - Translucent White Theme Overlaid */}
-      <nav className="nav-full vanguard-nav">
-        <div className="nav-container">
-          <Link href="/" className="logo font-podium tracking-wider uppercase text-2xl sm:text-3xl">
+      {/* SPLASH OVERLAY */}
+      <div className="splash" id="splash">
+        <div className="splash-row splash-row-top">
+          <div className="splash-box"></div>
+          <div className="splash-box"></div>
+          <div className="splash-box"></div>
+          <div className="splash-box"></div>
+          <div className="splash-box"></div>
+        </div>
+        <div className="splash-row splash-row-bottom">
+          <div className="splash-box"></div>
+          <div className="splash-box"></div>
+          <div className="splash-box"></div>
+          <div className="splash-box"></div>
+          <div className="splash-box"></div>
+        </div>
+      </div>
+
+      {/* FIXED LOGO */}
+      <div className="logo-wrapper">
+        <div className="inner">
+          <Link href="/" aria-label="Home" className="logo font-podium tracking-wider uppercase text-2xl sm:text-3xl text-slate-900">
             ND.
           </Link>
+        </div>
+      </div>
 
-          {/* Desktop Links (hidden below md) */}
-          <div className="nav-links">
-            <a href="#home" className="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <Link href="/projects">Projects</Link>
-            <a href="#contact">Contact</a>
-          </div>
+      {/* FIXED BURGER BUTTON */}
+      <div className="burger-wrapper">
+        <div className="inner">
+          <button 
+            className={`burger-btn ${menuOpen ? "open" : ""}`} 
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+          >
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
+        </div>
+      </div>
 
-          {/* Right Area (GET IN TOUCH or Hamburger Toggle) */}
-          <div style={{ display: "flex", alignItems: "center" }}>
-            {/* Desktop GET IN TOUCH (hidden below md) */}
-            <a 
-              href="mailto:nivrutti.dandekar@example.com" 
-              className="nav-email" 
-              style={{ display: "none" }} // Standard header hides standard email on custom VANGUARD structure
-            >
-              <Mail size={18} />
-            </a>
-
-            {/* Custom VANGUARD style touch link */}
-            <a
-              href="mailto:nivrutti.dandekar@example.com"
-              className="btn btn-vanguard-secondary hidden md:inline-flex items-center gap-1 font-inter text-xs tracking-widest uppercase"
-              style={{ 
-                fontSize: "12px", 
-                letterSpacing: "0.15em", 
-                padding: "10px 24px", 
-                borderRadius: "0" 
-              }}
-            >
-              Get In Touch <ArrowUpRight size={14} />
-            </a>
-
-            {/* Hamburger Toggle (below md only) */}
-            <button 
-              className="hamburger-btn" 
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open Menu"
-            >
-              <div className="hamburger-line" style={{ width: "24px" }}></div>
-              <div className="hamburger-line" style={{ width: "24px" }}></div>
-              <div className="hamburger-line" style={{ width: "16px" }}></div>
-            </button>
+      {/* DROPDOWN MENU PANEL */}
+      <div className={`menu-panel ${menuOpen ? "open" : ""}`} id="menu-panel">
+        <nav>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a>
+          <a href="#projects" onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+        </nav>
+        <div className="menu-contact">
+          <a href="mailto:nivrutti.dandekar@gmail.com" className="menu-email">
+            nivrutti.dandekar@gmail.com
+          </a>
+          <div className="menu-socials">
+            <a href="https://www.linkedin.com/in/nivrutti-dandekar-71638768/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:nivrutti.dandekar@gmail.com">Email</a>
+            <a href="#projects">Work</a>
           </div>
         </div>
-      </nav>
-
-      {/* Mobile Menu Overlay - Fullscreen White Theme Frosted */}
-      <AnimatePresence>
-        {menuOpen && (
-          <div className={`menu-overlay-white ${menuOpen ? "open" : ""}`}>
-            <div className="menu-header-white">
-              <Link href="/" className="logo font-podium text-2xl tracking-wider uppercase text-slate-800" onClick={() => setMenuOpen(false)}>
-                ND.
-              </Link>
-              <button 
-                className="menu-close-btn" 
-                onClick={() => setMenuOpen(false)}
-                aria-label="Close Menu"
-              >
-                <X size={18} />
-              </button>
-            </div>
-
-            <div className="menu-body-white">
-              {[
-                { label: "Home", href: "#home" },
-                { label: "About", href: "#about" },
-                { label: "Skills", href: "#skills" },
-                { label: "Projects", href: "/projects" },
-                { label: "Contact", href: "#contact" }
-              ].map((link, i) => (
-                <a
-                  key={i}
-                  href={link.href}
-                  className="menu-link-white font-podium"
-                  style={{ 
-                    transitionDelay: `${i * 80 + 100}ms`
-                  }}
-                  onClick={() => {
-                    setMenuOpen(false);
-                    if (link.href.startsWith("/")) {
-                      window.location.href = link.href;
-                    }
-                  }}
-                >
-                  {link.label}
-                </a>
-              ))}
-
-              <a
-                href="mailto:nivrutti.dandekar@example.com"
-                className="btn btn-vanguard-secondary font-inter"
-                style={{ 
-                  marginTop: "20px", 
-                  fontSize: "12px", 
-                  letterSpacing: "0.15em", 
-                  padding: "12px 28px", 
-                  borderRadius: "0",
-                  opacity: 1,
-                  transform: "translateY(0)"
-                }}
-                onClick={() => setMenuOpen(false)}
-              >
-                Get In Touch <ArrowUpRight size={14} />
-              </a>
-            </div>
-          </div>
-        )}
-      </AnimatePresence>
+        <div style={{ marginTop: "32px" }}>
+          <button 
+            className="menu-cta-btn" 
+            onClick={() => { 
+              setMenuOpen(false); 
+              const el = document.getElementById("contact"); 
+              if (el) el.scrollIntoView({ behavior: "smooth" }); 
+            }}
+          >
+            <span className="menu-cta-bg"></span>
+            <span className="menu-cta-text">Let's talk</span>
+            <span className="menu-cta-circle">
+              <svg width="14" height="14" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
 
       <main>
-        {/* Fullscreen Video Hero Section - White Theme style */}
-        <section id="home" className="hero-vanguard min-h-screen">
-          <div className="vanguard-video-layer">
-            <video
-              className="vanguard-video"
-              autoPlay
-              muted
-              loop
-              playsInline
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260606_154941_df1a96e1-a06f-450c-bd02-d863414cc1a0.mp4"
-            />
+        {/* Fullscreen Spotlight Reveal Hero Section */}
+        <section id="home" className="hero-spotlight">
+          {/* Big background text behind image */}
+          <div className="hero-big-text creator-text-animate">
+            <h2>Designer</h2>
           </div>
-          <div className="vanguard-overlay"></div>
 
-          <div className="container vanguard-content">
-            <div className="hero-content" style={{ textAlign: "left", margin: "0" }}>
-              {/* Tagline */}
-              <div className="vanguard-tagline animate-fade-up">
-                <Crown size={14} /> 
-                <span>Nivrutti Dandekar / Digital Portfolio</span>
-              </div>
+          {/* Base image */}
+          <div 
+            className="hero-base-img hero-image-animate"
+            style={{ backgroundImage: "url('https://soft-zoom-63098134.figma.site/_assets/v11/5c9f982199fde1d9b85a20e5396f0fa7bacaf9a3.png?w=2560')" }}
+          ></div>
 
-              {/* Main Heading (Podium Sharp, Dark Charcoal text) */}
-              <h1 className="font-podium vanguard-title hero-dark-text uppercase mb-6">
-                Design.
-                <br />
-                Disrupt.
-                <br />
-                Conquer.
-              </h1>
+          {/* Reveal layer */}
+          <div 
+            ref={revealImgRef}
+            className="hero-reveal-img" 
+            style={{ backgroundImage: "url('https://soft-zoom-63098134.figma.site/_assets/v11/6be2165e31648955b4e071f4cf2a50bc572b9bfd.png?w=1536')" }}
+          ></div>
 
-              {/* Preserved Subtext / Description */}
-              <p className="vanguard-description animate-fade-up-delay-2">
-                I craft meaningful, intuitive and beautiful digital experiences that connect people with technology.
-                Turning complex problems into elegant, user-centered solutions.
-              </p>
-
-              {/* CTA Row */}
-              <div className="vanguard-cta-row animate-fade-up-delay-3">
-                <a href="#projects" className="btn btn-vanguard-primary group">
-                  See Our Work <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
-                
-                <div className="vanguard-award">
-                  <Award className="w-8 h-8" />
-                  <div className="vanguard-award-text">
-                    Top-Rated
-                    <br />
-                    Brand Studio
-                  </div>
-                </div>
-              </div>
-
-              {/* Stats Row */}
-              <div className="vanguard-stats-row animate-fade-up-delay-4">
-                {[
-                  { value: "250+", label: "Brands Transformed" },
-                  { value: "95%", label: "Client Retention" },
-                  { value: "10+", label: "Years in the Game" }
-                ].map((stat, i) => (
-                  <div key={i} className="vanguard-stat-item">
-                    <span className="vanguard-stat-value">
-                      {stat.value}
-                    </span>
-                    <span className="vanguard-stat-label">
-                      {stat.label}
-                    </span>
-                  </div>
+          {/* Overlaid Content */}
+          <div className="hero-content-spotlight">
+            <div className="hero-content-inner">
+              <h1 className="hero-headline" id="headline">
+                {words.map((word, i) => (
+                  <span 
+                    key={i} 
+                    className="word-reveal" 
+                    style={{ animationDelay: `${1 + i * 0.06}s` }}
+                  >
+                    {word}
+                  </span>
                 ))}
-              </div>
+              </h1>
+              
+              <button 
+                className="cta-btn-wrapper cta-animate"
+                onClick={() => {
+                  const el = document.getElementById("projects");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                <span className="cta-btn-bg"></span>
+                <span className="cta-btn-text">Start a project now</span>
+                <span className="cta-btn-circle">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
             </div>
           </div>
         </section>
