@@ -238,7 +238,7 @@ export default function HomePage() {
             <span className="menu-cta-text">Let's talk</span>
             <span className="menu-cta-circle">
               <svg width="14" height="14" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
           </button>
@@ -292,7 +292,7 @@ export default function HomePage() {
                 <span className="cta-btn-text">Start a project now</span>
                 <span className="cta-btn-circle">
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </span>
               </button>
