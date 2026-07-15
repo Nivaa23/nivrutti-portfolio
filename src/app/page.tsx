@@ -11,96 +11,72 @@ import {
   ChevronRight, 
   Mail, 
   FileText, 
-  MessageCircle 
+  MessageCircle,
+  Layers,
+  Search,
+  GitCommit,
+  Network,
+  Palette,
+  Smartphone,
+  PenTool,
+  Image as ImageIcon,
+  BookOpen,
+  Zap,
+  Bot,
+  Heart,
+  Compass,
+  Eye,
+  Activity,
+  FastForward
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "@/components/Footer";
 
-// Marquee logos config
-const marqueeLogos = [
-  { 
-    id: "procure", 
-    name: "Procure", 
-    gradient: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
-    svg: (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" className="marquee-logo-img">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-      </svg>
-    )
-  },
-  { 
-    id: "shopify", 
-    name: "Shopify", 
-    gradient: "linear-gradient(135deg, #facc15 0%, #ca8a04 100%)",
-    svg: (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" className="marquee-logo-img">
-        <path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12z" />
-      </svg>
-    )
-  },
-  { 
-    id: "blender", 
-    name: "Blender", 
-    gradient: "linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)",
-    svg: (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" className="marquee-logo-img">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z" />
-      </svg>
-    )
-  },
-  { 
-    id: "figma", 
-    name: "Figma", 
-    gradient: "linear-gradient(135deg, #a855f7 0%, #7e22ce 100%)",
-    svg: (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" className="marquee-logo-img">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8H9V7h2v2zm4 8h-2v-4h2v4zm0-6h-2V7h2v6z" />
-      </svg>
-    )
-  },
-  { 
-    id: "spotify", 
-    name: "Spotify", 
-    gradient: "linear-gradient(135deg, #ec4899 0%, #be185d 100%)",
-    svg: (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" className="marquee-logo-img">
-        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-1.007-.336.08-.67-.13-.75-.467-.08-.337.13-.67.467-.75 3.856-.882 7.15-.5 9.83 1.14.296.18.387.563.206.86-.002.002-.002.002-.002.002zm1.222-2.724c-.226.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.183-.412.128-.85-.102-.978-.515-.128-.413.103-.85.516-.98 3.67-1.11 8.243-.57 11.353 1.343.367.227.487.708.26 1.075zm.105-2.833C14.773 8.87 9.54 8.694 6.516 9.61c-.482.146-.984-.13-.113-.61-.146-.48.13-.982.61-.836C10.45 7.1 16.22 7.3 19.86 9.463c.437.26.58.823.32 1.26-.26.438-.824.58-1.26.32a.02.02 0 0 1-.005-.003z" />
-      </svg>
-    )
-  },
-  { 
-    id: "lottielab", 
-    name: "Lottielab", 
-    gradient: "linear-gradient(135deg, #84cc16 0%, #4d7c0f 100%)",
-    svg: (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" className="marquee-logo-img">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
-      </svg>
-    )
-  },
-  { 
-    id: "google-cloud", 
-    name: "Google Cloud", 
-    gradient: "linear-gradient(135deg, #60a5fa 0%, #2563eb 100%)",
-    svg: (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" className="marquee-logo-img">
-        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z" />
-      </svg>
-    )
-  },
-  { 
-    id: "bing", 
-    name: "Bing", 
-    gradient: "linear-gradient(135deg, #06b6d4 0%, #0f766e 100%)",
-    svg: (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" className="marquee-logo-img">
-        <path d="M12 2L2 22h20L12 2zm0 4.8L18 18H6l6-11.2z" />
-      </svg>
-    )
-  }
+// Marquee items config matching the user's specific skills list
+const marqueeItems = [
+  { name: "UI/UX Design", icon: "Layers", gradient: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)" },
+  { name: "User Research & Usability Testing", icon: "Search", gradient: "linear-gradient(135deg, #facc15 0%, #ca8a04 100%)" },
+  { name: "Wireframing & Prototyping", icon: "GitCommit", gradient: "linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)" },
+  { name: "Interaction & Information Architecture", icon: "Network", gradient: "linear-gradient(135deg, #a855f7 0%, #7e22ce 100%)" },
+  { name: "Design Systems & Visual Design", icon: "Palette", gradient: "linear-gradient(135deg, #ec4899 0%, #be185d 100%)" },
+  { name: "Responsive & Mobile-first Design", icon: "Smartphone", gradient: "linear-gradient(135deg, #84cc16 0%, #4d7c0f 100%)" },
+  { name: "Figma", icon: "Layers", gradient: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)" },
+  { name: "Adobe Illustrator", icon: "PenTool", gradient: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)" },
+  { name: "Adobe Photoshop", icon: "Image", gradient: "linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)" },
+  { name: "Notion", icon: "BookOpen", gradient: "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)" },
+  { name: "Antigravity", icon: "Zap", gradient: "linear-gradient(135deg, #10b981 0%, #059669 100%)" },
+  { name: "ChatGPT / Gemini", icon: "Bot", gradient: "linear-gradient(135deg, #f43f5e 0%, #e11d48 100%)" },
+  { name: "Lovable", icon: "Heart", gradient: "linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)" },
+  { name: "Human-Centered Design Thinking", icon: "Compass", gradient: "linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)" },
+  { name: "Accessibility (WCAG AA)", icon: "Eye", gradient: "linear-gradient(135deg, #06b6d4 0%, #0f766e 100%)" },
+  { name: "Motion & Micro-Interactions", icon: "Activity", gradient: "linear-gradient(135deg, #a855f7 0%, #6b21a8 100%)" },
+  { name: "Rapid Prototyping", icon: "FastForward", gradient: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)" }
 ];
+
+const getIcon = (iconName: string) => {
+  switch (iconName) {
+    case "Layers": return <Layers className="marquee-card-icon" size={20} />;
+    case "Search": return <Search className="marquee-card-icon" size={20} />;
+    case "GitCommit": return <GitCommit className="marquee-card-icon" size={20} />;
+    case "Network": return <Network className="marquee-card-icon" size={20} />;
+    case "Palette": return <Palette className="marquee-card-icon" size={20} />;
+    case "Smartphone": return <Smartphone className="marquee-card-icon" size={20} />;
+    case "PenTool": return <PenTool className="marquee-card-icon" size={20} />;
+    case "Image": return <ImageIcon className="marquee-card-icon" size={20} />;
+    case "BookOpen": return <BookOpen className="marquee-card-icon" size={20} />;
+    case "Zap": return <Zap className="marquee-card-icon" size={20} />;
+    case "Bot": return <Bot className="marquee-card-icon" size={20} />;
+    case "Heart": return <Heart className="marquee-card-icon" size={20} />;
+    case "Compass": return <Compass className="marquee-card-icon" size={20} />;
+    case "Eye": return <Eye className="marquee-card-icon" size={20} />;
+    case "Activity": return <Activity className="marquee-card-icon" size={20} />;
+    case "FastForward": return <FastForward className="marquee-card-icon" size={20} />;
+    default: return <Zap className="marquee-card-icon" size={20} />;
+  }
+};
+
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -458,16 +434,17 @@ export default function HomePage() {
           <div className="marquee-wrapper">
             <div className="marquee-track">
               {/* Double render to loop seamlessly */}
-              {[...marqueeLogos, ...marqueeLogos].map((logo, index) => (
+              {[...marqueeItems, ...marqueeItems].map((item, index) => (
                 <div key={index} className="marquee-card group">
                   {/* Absolute gradient overlay on hover */}
                   <div 
                     className="marquee-card-gradient" 
-                    style={{ background: logo.gradient }}
+                    style={{ background: item.gradient }}
                   ></div>
                   
-                  {/* Render the logo icon */}
-                  {logo.svg}
+                  {/* Render the icon and text */}
+                  {getIcon(item.icon)}
+                  <span className="marquee-card-text">{item.name}</span>
                 </div>
               ))}
             </div>

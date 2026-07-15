@@ -1706,8 +1706,10 @@ nav {
 
 .marquee-card {
   position: relative;
-  height: 96px;
-  width: 160px;
+  height: 64px;
+  width: max-content;
+  min-width: 180px;
+  padding: 0 28px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -1719,6 +1721,7 @@ nav {
   transition: all 0.3s ease;
   overflow: hidden;
   cursor: pointer;
+  gap: 12px;
 }
 
 .marquee-card:hover {
@@ -1739,17 +1742,29 @@ nav {
   transform: scale(1);
 }
 
-.marquee-logo-img {
+.marquee-card-text {
   position: relative;
   z-index: 2;
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  transition: filter 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0a1b33;
+  white-space: nowrap;
+  transition: color 0.3s ease;
 }
 
-.marquee-card:hover .marquee-logo-img {
-  filter: brightness(0) invert(1);
+.marquee-card-icon {
+  position: relative;
+  z-index: 2;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.marquee-card:hover .marquee-card-text,
+.marquee-card:hover .marquee-card-icon {
+  color: #ffffff !important;
 }
 
 
