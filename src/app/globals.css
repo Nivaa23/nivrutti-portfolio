@@ -1449,26 +1449,43 @@ nav {
 }
 
 /* Hamburger Menu Button */
-.hamburger-btn {
-  display: none;
+.hamburger-menu {
+  width: 48px;
+  height: 48px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  background: transparent;
-  border: none;
-  padding: 8px;
+  gap: 5px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1010;
+}
+
+.hamburger-menu:hover {
+  background: #f4f1e8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .hamburger-line {
+  width: 22px;
   height: 2px;
-  background: #111111;
-  transition: all 0.3s ease;
+  background-color: #111111;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: 50% 50%;
 }
 
-@media (max-width: 768px) {
-  .hamburger-btn {
-    display: flex;
-  }
+.hamburger-menu.open .hamburger-line:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.hamburger-menu.open .hamburger-line:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
 }
 
 /* Button updates for white theme hero */

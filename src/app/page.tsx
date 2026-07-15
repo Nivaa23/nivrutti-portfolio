@@ -271,14 +271,17 @@ export default function HomePage() {
             ND.
           </Link>
           
-          <button 
-            className={`burger-btn ${isHamburgerOpen ? "open" : ""}`} 
+          <div
+            className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`}
             onClick={toggleMenu}
-            aria-label={isExpanded ? "Close menu" : "Open menu"}
+            role="button"
+            aria-label={isExpanded ? 'Close menu' : 'Open menu'}
+            aria-expanded={isExpanded}
+            tabIndex={0}
           >
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </button>
+            <div className="hamburger-line" />
+            <div className="hamburger-line" />
+          </div>
         </div>
 
         <div className="card-nav-content" aria-hidden={!isExpanded}>
