@@ -184,28 +184,21 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* FIXED LOGO */}
-      <div className="logo-wrapper">
-        <div className="inner">
-          <Link href="/" aria-label="Home" className="logo font-podium tracking-wider uppercase text-2xl sm:text-3xl text-slate-900">
-            ND.
-          </Link>
-        </div>
-      </div>
-
-      {/* FIXED BURGER BUTTON */}
-      <div className="burger-wrapper">
-        <div className="inner">
-          <button 
-            className={`burger-btn ${menuOpen ? "open" : ""}`} 
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-          >
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </button>
-        </div>
-      </div>
+      {/* GLOSSY TRANSPARENT HEADER BAR */}
+      <header className="glossy-header">
+        <Link href="/" aria-label="Home" className="logo font-podium tracking-wider uppercase text-2xl sm:text-3xl">
+          ND.
+        </Link>
+        
+        <button 
+          className={`burger-btn ${menuOpen ? "open" : ""}`} 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+        >
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
+      </header>
 
       {/* DROPDOWN MENU PANEL */}
       <div className={`menu-panel ${menuOpen ? "open" : ""}`} id="menu-panel">
