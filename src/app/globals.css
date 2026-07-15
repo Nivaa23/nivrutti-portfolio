@@ -1246,8 +1246,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.25);
   z-index: 1;
   pointer-events: none;
 }
@@ -1269,6 +1268,86 @@ nav {
 
 .hero-dark-border {
   border-color: rgba(17, 17, 17, 0.2);
+}
+
+/* Redesigned Hero Core Layouts */
+.vanguard-tagline {
+  font-family: 'Inter', sans-serif;
+  color: rgba(17, 17, 17, 0.7);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vanguard-description {
+  font-family: 'Inter', sans-serif;
+  color: rgba(17, 17, 17, 0.7);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.vanguard-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 32px;
+  margin-bottom: 40px;
+}
+
+.vanguard-award {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.vanguard-award-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.vanguard-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  margin-top: 48px;
+  border-top: 1px solid rgba(17, 17, 17, 0.1);
+  padding-top: 32px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.vanguard-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.vanguard-stat-value {
+  font-family: 'Inter', sans-serif;
+  color: #111111;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.vanguard-stat-label {
+  color: rgba(17, 17, 17, 0.5);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 8px;
 }
 
 /* White Theme Nav overlays and components */

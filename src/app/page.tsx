@@ -277,8 +277,8 @@ export default function HomePage() {
           <div className="container vanguard-content">
             <div className="hero-content" style={{ textAlign: "left", margin: "0" }}>
               {/* Tagline */}
-              <div className="animate-fade-up font-inter text-slate-800/70 text-xs sm:text-sm tracking-[0.3em] uppercase mb-6 lg:mb-8 flex items-center gap-2">
-                <Crown size={14} className="text-slate-800/70" /> 
+              <div className="vanguard-tagline animate-fade-up">
+                <Crown size={14} /> 
                 <span>Nivrutti Dandekar / Digital Portfolio</span>
               </div>
 
@@ -292,20 +292,20 @@ export default function HomePage() {
               </h1>
 
               {/* Preserved Subtext / Description */}
-              <p className="font-inter hero-dark-secondary text-sm sm:text-base leading-relaxed max-w-md animate-fade-up-delay-2 mt-6">
+              <p className="vanguard-description animate-fade-up-delay-2">
                 I craft meaningful, intuitive and beautiful digital experiences that connect people with technology.
                 Turning complex problems into elegant, user-centered solutions.
               </p>
 
               {/* CTA Row */}
-              <div className="animate-fade-up-delay-3 mt-8 lg:mt-10 flex flex-wrap items-center gap-4 sm:gap-6">
+              <div className="vanguard-cta-row animate-fade-up-delay-3">
                 <a href="#projects" className="btn btn-vanguard-primary group">
                   See Our Work <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 
-                <div className="hidden sm:flex items-center gap-3">
-                  <Award className="w-8 h-8 text-slate-800/40" />
-                  <div className="font-inter text-slate-800/60 text-[10px] sm:text-xs tracking-wider uppercase leading-tight">
+                <div className="vanguard-award">
+                  <Award className="w-8 h-8" />
+                  <div className="vanguard-award-text">
                     Top-Rated
                     <br />
                     Brand Studio
@@ -314,17 +314,17 @@ export default function HomePage() {
               </div>
 
               {/* Stats Row */}
-              <div className="animate-fade-up-delay-4 mt-8 sm:mt-10 lg:mt-14 flex flex-wrap gap-6 sm:gap-12 lg:gap-16">
+              <div className="vanguard-stats-row animate-fade-up-delay-4">
                 {[
                   { value: "250+", label: "Brands Transformed" },
                   { value: "95%", label: "Client Retention" },
                   { value: "10+", label: "Years in the Game" }
                 ].map((stat, i) => (
-                  <div key={i} className="flex flex-col">
-                    <span className="font-inter hero-dark-text text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+                  <div key={i} className="vanguard-stat-item">
+                    <span className="vanguard-stat-value">
                       {stat.value}
                     </span>
-                    <span className="text-slate-800/50 text-[9px] sm:text-xs tracking-widest uppercase mt-1">
+                    <span className="vanguard-stat-label">
                       {stat.label}
                     </span>
                   </div>
