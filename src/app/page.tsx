@@ -243,7 +243,7 @@ export default function HomePage() {
         <section id="home" className="hero-spotlight">
           {/* Big background text behind image */}
           <div className="hero-big-text creator-text-animate">
-            <h2>Designer</h2>
+            <h2>Nivrutti</h2>
           </div>
 
           {/* Base image */}
