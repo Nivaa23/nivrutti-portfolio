@@ -80,7 +80,87 @@ const getIcon = (iconName: string) => {
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const revealImgRef = useRef<HTMLDivElement>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
+
+  const calculateHeight = () => {
+    const navEl = navRef.current;
+    if (!navEl) return 284;
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) {
+      const contentEl = navEl.querySelector('.card-nav-content');
+      if (contentEl) {
+        const topBar = 70;
+        const padding = 24;
+        const contentHeight = (contentEl as HTMLElement).scrollHeight;
+        return topBar + contentHeight + padding;
+      }
+    }
+    return 284;
+  };
+
+  const toggleMenu = () => {
+    const tl = tlRef.current;
+    if (!tl) return;
+    if (!isExpanded) {
+      setIsHamburgerOpen(true);
+      setIsExpanded(true);
+      tl.play(0);
+    } else {
+      setIsHamburgerOpen(false);
+      tl.eventCallback('onReverseComplete', () => setIsExpanded(false));
+      tl.reverse();
+    }
+  };
+
+  // CardNav animation layout setup
+  useEffect(() => {
+    const navEl = navRef.current;
+    if (!navEl) return;
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    gsap.set(navEl, { height: isMobile ? 70 : 80, overflow: 'hidden' });
+    gsap.set(cardsRef.current, { y: 50, opacity: 0 });
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(navEl, {
+      height: calculateHeight,
+      duration: 0.45,
+      ease: "power3.out"
+    });
+
+    tl.to(cardsRef.current, { 
+      y: 0, 
+      opacity: 1, 
+      duration: 0.4, 
+      ease: "power3.out", 
+      stagger: 0.08 
+    }, '-=0.15');
+
+    tlRef.current = tl;
+
+    const handleResize = () => {
+      if (!tlRef.current) return;
+      if (isExpanded) {
+        gsap.set(navEl, { height: calculateHeight() });
+      } else {
+        gsap.set(navEl, { height: window.matchMedia('(max-width: 768px)').matches ? 70 : 80 });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      tl.kill();
+      tlRef.current = null;
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isExpanded]);
 
   // Setup scroll trigger reveal animations
   useEffect(() => {
@@ -185,58 +265,52 @@ export default function HomePage() {
       </div>
 
       {/* GLOSSY TRANSPARENT HEADER BAR */}
-      <header className="glossy-header">
-        <Link href="/" aria-label="Home" className="logo font-podium tracking-wider uppercase text-2xl sm:text-3xl">
-          ND.
-        </Link>
-        
-        <button 
-          className={`burger-btn ${menuOpen ? "open" : ""}`} 
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-        >
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </button>
-      </header>
-
-      {/* DROPDOWN MENU PANEL */}
-      <div className={`menu-panel ${menuOpen ? "open" : ""}`} id="menu-panel">
-        <nav>
-          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-          <a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a>
-          <a href="#projects" onClick={() => setMenuOpen(false)}>Work</a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
-        </nav>
-        <div className="menu-contact">
-          <a href="mailto:nivrutti.dandekar@gmail.com" className="menu-email">
-            nivrutti.dandekar@gmail.com
-          </a>
-          <div className="menu-socials">
-            <a href="https://www.linkedin.com/in/nivrutti-dandekar-71638768/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="mailto:nivrutti.dandekar@gmail.com">Email</a>
-            <a href="#projects">Work</a>
-          </div>
-        </div>
-        <div style={{ marginTop: "32px" }}>
+      <header ref={navRef} className={`glossy-header ${isExpanded ? 'open' : ''}`}>
+        <div className="glossy-header-top">
+          <Link href="/" aria-label="Home" className="logo font-podium tracking-wider uppercase text-2xl sm:text-3xl">
+            ND.
+          </Link>
+          
           <button 
-            className="menu-cta-btn" 
-            onClick={() => { 
-              setMenuOpen(false); 
-              const el = document.getElementById("contact"); 
-              if (el) el.scrollIntoView({ behavior: "smooth" }); 
-            }}
+            className={`burger-btn ${isHamburgerOpen ? "open" : ""}`} 
+            onClick={toggleMenu}
+            aria-label={isExpanded ? "Close menu" : "Open menu"}
           >
-            <span className="menu-cta-bg"></span>
-            <span className="menu-cta-text">Let's talk</span>
-            <span className="menu-cta-circle">
-              <svg width="14" height="14" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 13L13 5M13 5H6M13 5V12" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </span>
+            <span className="bar"></span>
+            <span className="bar"></span>
           </button>
         </div>
-      </div>
+
+        <div className="card-nav-content" aria-hidden={!isExpanded}>
+          {/* Card 1 */}
+          <div className="nav-card" ref={el => { if (el) cardsRef.current[0] = el }} style={{ backgroundColor: "#1e1e1e", color: "#f4f1e8" }}>
+            <div className="nav-card-label">Explore</div>
+            <div className="nav-card-links">
+              <a className="nav-card-link" href="#home" onClick={toggleMenu}><ArrowUpRight size={14} /> Home</a>
+              <a className="nav-card-link" href="#about" onClick={toggleMenu}><ArrowUpRight size={14} /> About</a>
+              <a className="nav-card-link" href="#skills" onClick={toggleMenu}><ArrowUpRight size={14} /> Skills</a>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="nav-card" ref={el => { if (el) cardsRef.current[1] = el }} style={{ backgroundColor: "#2a2a2a", color: "#f4f1e8" }}>
+            <div className="nav-card-label">Work</div>
+            <div className="nav-card-links">
+              <Link className="nav-card-link" href="/projects" onClick={toggleMenu}><ArrowUpRight size={14} /> All Projects</Link>
+              <Link className="nav-card-link" href="/projects/cranial-space" onClick={toggleMenu}><ArrowUpRight size={14} /> Featured Case</Link>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="nav-card" ref={el => { if (el) cardsRef.current[2] = el }} style={{ backgroundColor: "#3a3a3a", color: "#f4f1e8" }}>
+            <div className="nav-card-label">Connect</div>
+            <div className="nav-card-links">
+              <a className="nav-card-link" href="https://www.linkedin.com/in/nivrutti-dandekar-71638768/" target="_blank" rel="noopener noreferrer"><ArrowUpRight size={14} /> LinkedIn</a>
+              <a className="nav-card-link" href="mailto:nivrutti.dandekar@gmail.com" onClick={toggleMenu}><ArrowUpRight size={14} /> Email Me</a>
+            </div>
+          </div>
+        </div>
+      </header>
 
       <main>
         {/* Fullscreen Spotlight Reveal Hero Section */}
