@@ -90,6 +90,10 @@
   border-bottom: none;
 }
 
+.cs-section.no-border {
+  border-bottom: none;
+}
+
 .cs-section-title {
   font-size: 32px;
   margin-bottom: 40px;
